@@ -1,0 +1,26 @@
+{
+  "name": "code-explainer",
+  "version": "0.5.0",
+  "description": "浏览选择项目、自选解释模型；大字全屏导图支持类/函数/框架总结和源码跳转。",
+  "author": {
+    "name": "DreamPerday"
+  },
+  "license": "MIT",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "代码随读",
+    "shortDescription": "浏览项目、自选模型，大字全屏导图可跳转源码。",
+    "longDescription": "只读代码阅读面板，支持浏览文件夹和最近项目、自选后台模型、可调字号与全屏代码思维导图、框架总结、源码跳转、面板内悬浮固定、选区解释和文件用途。使用现有 Codex 登录独立生成结果。",
+    "developerName": "DreamPerday",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read"
+    ],
+    "defaultPrompt": [
+      "用代码随读打开当前项目，让我选中代码并在浮窗里查看解释。"
+    ],
+    "brandColor": "#4D7968"
+  }
+}

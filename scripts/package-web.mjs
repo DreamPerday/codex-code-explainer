@@ -1,0 +1,12 @@
+import { readFile } from 'node:fs/promises';
+import { spawnSync } from 'node:child_process';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const { version } = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'));
+const quote = value => "'" + value.replaceAll("'", "''") + "'";
+if (process.platform !== 'win32') throw new Error('This release packager currently requires Windows PowerShell.');
+const archive = path.join(root, 'dist', `code-explainer-web-${version}.zip`);
+const result = spawnSync('powershell.exe', ['-NoProfile', '-Command', `Compress-Archive -Path ${quote(path.join(root, 'dist/web/*'))} -DestinationPath ${quote(archive)} -Force`], { windowsHide: true, encoding: 'utf8' });
+if (result.status !== 0) throw new Error(result.stderr || 'Web packaging failed');
+process.stdout.write(`Packaged standalone website: ${archive}\n`);

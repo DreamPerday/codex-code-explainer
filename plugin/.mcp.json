@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "code-explainer": {
+      "command": "node",
+      "args": ["./dist/server.mjs", "--stdio"],
+      "cwd": ".",
+      "tool_timeout_sec": 120
+    }
+  }
+}
